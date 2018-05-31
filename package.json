@@ -1,0 +1,31 @@
+{
+  "name": "final-project-gucci-gang",
+  "version": "1.0.0",
+  "description": "\"Calendar and map for office hour information\"",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "bootstrap": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-Sp18/final-project-gucci-gang.git"
+  },
+  "keywords": [
+    "HTML",
+    "Javascript",
+    "Bootstrap",
+    "JQuery",
+    "Node"
+  ],
+  "author": "\"Harshvardhan Singh\" \"Chinmay Wadgaonkar\" \"Teo Schutfort\" \"Trevor Jones\"",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-Sp18/final-project-gucci-gang/issues"
+  },
+  "homepage": "https://github.com/OSU-CS290-Sp18/final-project-gucci-gang#readme"
+}
