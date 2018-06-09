@@ -111,6 +111,12 @@ a:hover {
   font-weight: 400;
 }
 
+.places-list {
+  overflow-y: scroll;
+  height: 250px;
+  width: 250px;
+}
+
 .person-card {
   margin: 10px;
   padding: 20px;
