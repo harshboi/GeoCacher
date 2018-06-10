@@ -1,126 +1,49 @@
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  background-color: #dadada;
-}
-
 header {
-  background-color: #e78477;
-  color: #fff;
+	background-color: #33CC33;
 }
 
-a {
-  text-decoration: none;
-  color: #03a9f4;
-}
-
-a:hover {
-  color: #0c719e;
-}
-
-.site-title {
-  margin: 0;
-  padding: 20px;
+body {
+	background-color: #EEEEEE;
+	font-family: Lato;
+	padding: 0;
+	margin: 0;
+ }
+ 
+ .site-title {
+	color: #FFFFFF;
+	display: block;
+	float: none;
+	width: 100%;
+    text-align: center;
+	font-size: 200%;
+	font-weight: bold;
+	padding: .5em;
+	margin: 0;
+	text-align: center;
 }
 
 .navbar {
-  font-size: 22px;
-  background-color: #fff;
+	background-color: #FFFFFF;
+	font-size: 120%;
 }
 
 .navlist {
-  margin: 0;
+	text-align:center;
+	margin: 0;
+	padding: 0 1em;
 }
 
 .navitem {
-  display: inline-block;
+	display: inline-block;
+	text-align: center;
+	padding: 8px;
 }
 
-.navitem:hover {
-  background-color: rgba(231, 132, 119, 0.18);
+a {
+	text-decoration: none;
+	color: #000000;
 }
 
-.navitem a {
-  display: inline-block;
-  color: #454545;
-  padding: 10px 20px;
-}
-
-.navitem.right {
-  float: right;
-}
-
-.photo-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-}
-
-.photo-card {
-  flex: 1 32%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  margin: 5px;
-}
-
-.person-photo-img {
-  max-height: 300px;
-}
-
-.error-page {
-  text-align: center;
-}
-
-.error-page h2 {
-  font-weight: 100;
-  font-size: 100px;
-  margin-bottom: 0;
-}
-
-.error-page h3 {
-  font-size: 24px;
-  margin-top: 0;
-}
-
-.home-page .icon {
-  display: inline-block;
-  margin: 40px;
-  font-size: 192px;
-  color: #454545;
-}
-
-.title-container {
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  text-align: center;
-}
-
-.title-container h1 {
-  margin: 20px 0;
-  font-size: 64px;
-  font-weight: 400;
-}
-
-.title-container h2 {
-  margin: 10px 0;
-  font-size: 48px;
-  font-weight: 400;
-}
-
-.places-list {
-  overflow-y: scroll;
-  height: 250px;
-  width: 250px;
-}
-
-.person-card {
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 28px;
+a:hover {
+	color: #006600;
 }
