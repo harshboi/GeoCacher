@@ -1,4 +1,4 @@
-# Geo-GeoCacher
+# Geo-Cacher
 
 **Demo during finals week**
 
