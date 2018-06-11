@@ -11,7 +11,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "handlebars views/partials/locationListItem.handlebars -f public/locationListItem.js",
+    "prestart": "npm run build"
   },
   "repository": {
     "type": "git",
