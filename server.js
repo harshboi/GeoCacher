@@ -18,7 +18,7 @@ app.get('/', function (req, res, next) {
   });
 });
 
-app.get('/:n', function (req, res, next) {
+app.get('/location/:n', function (req, res, next) {
   // Display location n
 });
 
