@@ -1,0 +1,29 @@
+[
+  {
+    "name": "test",
+    "link": "asdf",
+    "author": "asdfasdf",
+    "city": "corvallis",
+    "state": "oregon",
+    "lat": "112",
+    "long": "-123.2342"
+  },
+  {
+    "name": "test2",
+    "link": "test2",
+    "author": "trevor",
+    "city": "corvallis",
+    "state": "oregon",
+    "lat": "23",
+    "long": "54"
+  },
+  {
+    "name": "test3",
+    "link": "test3",
+    "author": "hello",
+    "city": "portland",
+    "state": "oregon",
+    "lat": "23",
+    "long": "54"
+  },
+]
