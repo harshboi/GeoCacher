@@ -17,7 +17,7 @@ body {
     text-align: center;
 	font-size: 200%;
 	font-weight: bold;
-	padding: .5em;
+	padding: .5em 0;
 	margin: 0;
 	text-align: center;
 }
@@ -48,17 +48,25 @@ a:hover {
 	color: #006600;
 }
 
-table {
-	max-width:980px;
+caption {
+	font-size: 150%;
+	font-weight: bold;
+
+}
+
+.location-table {
+	max-width:75em;
+	height: 100em;
 	table-layout:fixed;
 	margin:auto;
 }
 th, td {
-	padding:5px 10px;
+	padding:.25em;
 	border:1px solid #000;
+	text-align:"center";
 }
-thead, tfoot {
-	background:#f9f9f9;
+thead {
+	background:#LightGrey;
 	display:table;
 	width:100%;
 	width:calc(100% - 18px);
