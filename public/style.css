@@ -8,7 +8,7 @@ body {
 	padding: 0;
 	margin: 0;
  }
-
+ 
  .site-title {
 	color: #FFFFFF;
 	display: block;
@@ -43,7 +43,13 @@ caption {
 	margin: 0 auto;
 }
 
+.location-table-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .location-table {
+	min-height: 50vh;
 	max-width:75em;
 	height: 40em;
 	table-layout:fixed;
@@ -56,13 +62,15 @@ caption {
 th, td {
 	padding:.25em 0;
 	border:1px solid #000;
-	text-align:"center";
+	text-align:center;
 }
 thead {
 	background:#LightGrey;
 	display:table;
+	overflow-x:hidden;
 	width:100%;
-	width:calc(100% - 18px);
+	table-layout:fixed;
+	text-align:center;
 }
 tbody {
 	height:100%;
@@ -78,11 +86,59 @@ tbody tr {
 	text-align:"center";
 }
 
-tr:hover {
+tbody tr:hover {
   background-color: lightblue;
   cursor: pointer;
 }
 
+th:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+tr td:nth-child(1) {
+  width: 10em;
+}
+
+tr td:nth-child(2) {
+  width: 8em;
+}
+
+tr td:nth-child(3) {
+  width: 8em;
+}
+
+tr td:nth-child(4) {
+  width: 8em;
+}
+
+tr td:nth-child(5) {
+  width: 5em;
+}
+
+tr td:nth-child(6) {
+  width: 5em;
+}
+
+tr th:nth-child(1) {
+  width: 10em;
+}
+
+tr th:nth-child(2) {
+  width: 8em;
+}
+
+tr th:nth-child(3) {
+  width: 8em;
+}
+
+tr th:nth-child(4) {
+  width: 5em;
+}
+
+tr th:nth-child(5) {
+  width: 5em;
+}
 .error-container {
   margin-top: 50px;
   text-align: center;
