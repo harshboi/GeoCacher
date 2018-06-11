@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-       /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 50%;  /* The width is the width of the web page */
-       }
-    </style>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location
-  var location = {lat: 18.50419, lng: 73.85309};
-  // The map, centered at the location
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: location});
-  // The marker, positioned at location
-  var marker = new google.maps.Marker({position: location, map: map});
-}
-    </script>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM&callback=initMap">
-    </script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>GeoCacher</title>
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet">
+		<script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<header>
+			<a href="#"><h1 class="site-title"><i class="far fa-map"></i>GeoCacher</h1></a>
+		</header>
+		
+		<main class="location-info-page">
+		
+			<h1 class="location-title">Tree Stump</h1>
+			<iframe width="800" height="500" frameborder="0" style="border:1"
+				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM
+				&q=
+				(44.609958,-123.335086)">
+			</iframe>
+			
+			<div class="more-container">
+				<div class="location-more">
+					<p class="location-author">
+						Author: Admin
+					</p>
+				
+					<p class="location-description">
+						Description: A hollowed out old tree stump near the trailhead for oak creek. Look for the pink arrow on a rock near the fork in the trail. 
+					</p>
+				</div>
+			</div>
+
+	
+	
+		</main>
+	</body>
 </html>
