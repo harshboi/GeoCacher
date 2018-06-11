@@ -54,7 +54,7 @@ caption {
 	font-size: 110%;
 }
 th, td {
-	padding:.25em;
+	padding:.25em 0;
 	border:1px solid #000;
 	text-align:"center";
 }
@@ -76,4 +76,9 @@ tbody tr {
 	width:100%;
 	table-layout:fixed;
 	text-align:"center";
+}
+
+tr:hover {
+  background-color: lightblue;
+  cursor: pointer;
 }
