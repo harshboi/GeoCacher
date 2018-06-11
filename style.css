@@ -48,23 +48,30 @@ a:hover {
 	color: #006600;
 }
 
-.location-container {
-	overflow:scroll;
-	margin: 2em auto;
-	padding: 0;
-	width: 50em;
-	height: 50em;
-	display: flex;
-	flex-wrap: wrap;
+table {
+	max-width:980px;
+	table-layout:fixed;
+	margin:auto;
 }
-
-.location {
-	background-color: #FFFFFF;
-	width: 40 em;
-	border-radius: .25em;
-	border: 1px solid LightGrey;
-	display: flex;
-	margin: 3px;
-	padding: 1em;
-	flex-basis: 49em;
+th, td {
+	padding:5px 10px;
+	border:1px solid #000;
+}
+thead, tfoot {
+	background:#f9f9f9;
+	display:table;
+	width:100%;
+	width:calc(100% - 18px);
+}
+tbody {
+	height:300px;
+	overflow:auto;
+	overflow-x:hidden;
+	display:block;
+	width:100%;
+}
+tbody tr {
+	display:table;
+	width:100%;
+	table-layout:fixed;
 }
