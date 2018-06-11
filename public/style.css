@@ -183,6 +183,7 @@ iframe {
 	display: flex;
 	margin: .125em;
 	padding: 1em;
+	flex: auto;
 }
 
 .location-author {
@@ -190,5 +191,4 @@ iframe {
 }
 
 .location-description {
-	
 }
