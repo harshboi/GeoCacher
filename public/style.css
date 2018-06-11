@@ -154,3 +154,41 @@ tr th:nth-child(5) {
   font-size: 36px;
   font-weight: 400;
 }
+
+.location-title {
+	display: table;
+	font-weight: bold;
+	font-size: 250%;
+	margin: .5em auto;
+}
+
+iframe {
+	display: table;
+	margin: .5em auto;
+}
+
+.more-container {
+	position: relative;
+	margin: 1em auto;
+	padding: 0;
+	max-width: 800px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.location-more {
+	background-color: #FFFFFF;
+	border-radius: .25em;
+	border: 1px solid LightGrey;
+	display: flex;
+	margin: .125em;
+	padding: 1em;
+}
+
+.location-author {
+	font-size: 120%;
+}
+
+.location-description {
+	
+}
