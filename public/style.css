@@ -189,3 +189,32 @@ iframe {
 .location-info {
 	font-size: 120%;
 }
+
+.comment-container {
+	margin: 1.5em auto;
+	padding: 0;
+	width: 50em;
+	max-height: 46em;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.comment {
+	background-color: #FFFFFF;
+	width: 40 em;
+	border-radius: .25em;
+	border: 1px solid LightGrey;
+	display: flex;
+	margin: .125em;
+	padding: 1em;
+	flex-basis: 49em;
+}
+
+.comment-author {
+	font-weight:bolder;
+}
+
+h2 {
+	border-bottom:2px solid #3F3F3F;
+	border-radius: .25em;
+}
