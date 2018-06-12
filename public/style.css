@@ -167,29 +167,6 @@ iframe {
 	margin: .5em auto;
 }
 
-.more-container {
-	position: relative;
-	margin: 1em auto;
-	padding: 0;
-	max-width: 800px;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.location-more {
-	background-color: #FFFFFF;
-	border-radius: .25em;
-	border: 1px solid LightGrey;
-	display: flex;
-	margin: .125em;
-	padding: 1em;
-	flex: auto;
-}
-
-.location-info {
-	font-size: 120%;
-}
-
 .comment-container {
 	margin: 1.5em auto;
 	padding: 0;
@@ -206,7 +183,7 @@ iframe {
 	border: 1px solid LightGrey;
 	display: flex;
 	margin: .125em;
-	padding: 1em;
+	padding: 0 1em .5em;
 	flex-basis: 49em;
 }
 
@@ -217,4 +194,14 @@ iframe {
 h2 {
 	border-bottom:2px solid #3F3F3F;
 	border-radius: .25em;
+}
+
+.description-author {
+	font-size: 130%;
+	font-weight: bold;
+}
+
+.description-text {
+	font-size: 110%;
+	margin: .5em 1em ;
 }
