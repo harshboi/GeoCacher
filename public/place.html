@@ -7,27 +7,37 @@
 		<script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
 		<link rel="stylesheet" href="style.css">
 	</head>
-	
+
 	<body>
 		<header>
 			<a href="#"><h1 class="site-title"><i class="far fa-map"></i>GeoCacher</h1></a>
 		</header>
-		
+
 		<main class="location-info-page">
-		
+
 			<h1 class="location-title">Tree Stump</h1>
 			<iframe width="800" height="500" frameborder="0" style="border:1"
-				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM
+				src="https://www.google.com/maps/embed/v1/place
+				?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM
+				&zoom=15
 				&q=
 				(44.609958,-123.335086)">
 			</iframe>
+			<iframe width="800" height="500" frameborder="0" style="border:1"
+				src="https://www.google.com/maps/embed/v1/streetview
+				?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM
+				&heading=210
+			  &pitch=10
+			  &fov=35
+				&location=1.3406241,103.9494707">
+			</iframe>
 		</main>
-		
+
 		<main class="comment-container">
 			<article class="comment">
 				<div class="comment-content">
 					<p class="description-author">
-						Admin 
+						Admin
 					</p>
 					<p class="description-text">
 						A hollowed out old tree stump near the trailhead for oak creek. Look for the pink arrow on a rock near the fork in the trail.
@@ -35,11 +45,11 @@
 					</p>
 				</div>
 			</article>
-		
+
 		<main class="comment-container">
-		
+
 		<h2> Comment Section </h2>
-		
+
 			<article class="comment">
 				<div class="comment-content">
 					<p class="comment-author">
@@ -52,7 +62,7 @@
 					</p>
 				</div>
 			</article>
-			
+
 			<article class="comment">
 				<div class="comment-content">
 					<p class="comment-author">
@@ -114,9 +124,9 @@
 				</div>
 			</article>
 		</main>
-		
+
 		<button class="create-button" type="button" id="create-button"><i class="far fa-comment"></i></button>
-		
+
 		<div id="modal-backdrop" class="hidden"></div>
 			<div id="leave-comment-modal" class="hidden">
 				<div class="modal-pop-up">
@@ -131,7 +141,7 @@
 							<label for="comment-author-input">Author</label>
 							<input type="text" id="comment-author-input">
 						</div>
-						
+
 						<div class="comment-input-element">
 							<label for="comment-input">Comment</label>
 							<textarea id="comment-input"></textarea>
@@ -145,6 +155,6 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</body>
 </html>
