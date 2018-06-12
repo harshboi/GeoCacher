@@ -7,6 +7,26 @@ var locationData = require('./locData');
 var app = express();
 var port = process.env.PORT || 3000;
 
+var MongoClient = require('mongodb').MongoClient;
+var mongoHost = process.env.MONGO_HOST;
+var mongoPort = process.env.MONGO_PORT || 27017;
+var mongoUser = process.env.MONGO_USER;
+var mongoPassword = process.env.MONGO_PASSWORD;
+var mongoDBName = process.env.MONGO_DB_NAME;
+mongoUser = 'cs290_singhhar';
+mongoHost = 'cs290_singhhar';
+mongoDBName = 'cs290_singhhar';
+mongoPassword = 'cs290_singhhar';
+var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
+// var mongoURL = 'mongodb://' + 'cs290_singhhar' + ':' + 'cs290_singhhar' + '@' + 'classmongo.engr.oregonstate.edu' + ':' + mongoPort + '/' + 'cs290_singhhar';
+// mongo --host classmongo.engr.oregonstate.edu --username cs290_singhhar cs290_singhhar --password
+//mongo --host classmongo.engr.oregonstate.edu --username cs290_[ONID] cs290_[ONID] --password
+MongoClient.connect(mongoURL, function(err, client) {
+  if (err) {
+    throw err;
+  }
+});
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
