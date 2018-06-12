@@ -201,9 +201,11 @@ h2 {
 	font-weight: bold;
 }
 
+.description-latitute,
+.description-longitute,
 .description-text {
 	font-size: 110%;
-	margin: .5em 1em ;
+	margin: .25em .5em ;
 }
 
 
