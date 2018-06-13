@@ -43,6 +43,7 @@
     "city": "portland",
     "state": "oregon",
     "lat": "23",
-    "long": "54"
+    "long": "54",
+    "comments": "FALSE"
   }
 ]

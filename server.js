@@ -41,10 +41,10 @@ MongoClient.connect(mongoURL, function(err, client) {
   });
   var temp = retrieve_all_data();
   setTimeout( function(){
-    console.log("Data load finished");
-    console.log("temp is: ",temp);    
+    // console.log("Data load finished");
+    // console.log("temp is: ",temp);    
   },2000);
-  console.log("temp is: ",temp);
+  // console.log("temp is: ",temp);
 });
 
 function add_data (_name, _link, _author, _city, _state, _lat, _long) {
@@ -67,13 +67,16 @@ function retrieve_all_data () {
       throw err;
     }
     else {
-      console.log ("Working");
+      console.log ("Working ",client);
     }
   });
   
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
-      console.log("DADADA", _data[3]);
+      console.log("DADADA", _data[0]);
+      var zz = _data[0].comments;
+      console.log(zz);
+      // res.status(200).render()
       return _data;
     }
     else {
@@ -102,14 +105,13 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/location/:n', function (req, res, next) {
+app.get('/location', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
-  
+  console.log("INSIDE LOCATION");  
 
-  for(var i = 0; i < locationData.length; i++) {
-    var all_information = db.collection('location_data', function(err,client) {
+    var all_information = db.collection('location_data', function (err,client) {
       if(err) {
         throw err;
       }
@@ -120,19 +122,22 @@ app.get('/location/:n', function (req, res, next) {
     
     var x = all_information.find({}).toArray( function (err, _data) {
       if(_data.length > 0) {
-        console.log("DADADA", _data[2]);
-        if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+        // for(var i = 0; i < _data.length;i++){
+        console.log("Inner working" + _data[2] + " i is " + i);
+          var i = 1;
+        // if(_data[i].link.toUpperCase() === n.toUpperCase()) {
           served = true;
           res.render('placeView', {
-            name: locationData[i].name,
-            author: locationData[i].author,
-            lat: locationData[i].lat,
-            long: locationData[i].long,
-            description: locationData[i].description,
-            comments: locationData[i].comments
+            name: _data[i].name,
+            author: _data[i].author,
+            lat: _data[i].lat,
+            long: _data[i].long,
+            description: _data[i].description,
+            comments: _data[i].comments
           });
-        }
-        // return _data;
+        // }
+      // }
+        // return _data;  
       }
       else {
         console.log("ERROROROR");
@@ -150,11 +155,10 @@ app.get('/location/:n', function (req, res, next) {
     //     comments: locationData[i].comments
     //   });
     // }
-  }
 
-  if(!served) {
-    next();
-  }
+  // if(!served) {
+  //   next();
+  // }
 });
 
 
