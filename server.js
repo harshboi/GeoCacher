@@ -105,7 +105,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/home', function (req, res, next) {
+app.get('/', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
@@ -164,15 +164,6 @@ app.get('/home', function (req, res, next) {
   // }
 });
 
-
-
-
-app.get('/', function (req, res, next) {
-  res.render('locationList', {
-    locations: locationData
-  });
-});
-
 app.get('/:n', function (req, res, next) {
   var i = req.params.n;
   var served = false;
@@ -188,7 +179,7 @@ app.get('/:n', function (req, res, next) {
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
       var validity = 0;
-      
+
       for(j = 0; j<_data.length; j++) {
         // console.log(_data[j].link.toLowerCase() + " " + i.toLowerCase());
         if(_data[j].link.toLowerCase() === i.toLowerCase()) {
@@ -265,7 +256,7 @@ app.post('/people/:person/addPhoto', function (req, res, next) {
   //       }
   //     }
   //   );
-    } 
+    }
   // else {
   //   res.status(400).send("Request needs a JSON body with caption and photoURL.")
   // }
