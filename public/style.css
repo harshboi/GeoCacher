@@ -218,7 +218,7 @@ button .fa-comment, button .fa-map-pin {
 	transform: scale(2);
 }
 
-.create-button {
+#create-button {
 	border-radius: 50%;
 	background-color: Red;
 	box-shadow: 4px 4px 2px #BDBDBD;
@@ -230,12 +230,12 @@ button .fa-comment, button .fa-map-pin {
 	border: 0;
 }
 
-.create-button:hover {
+#create-button:hover {
 	transform: scale(1.2);
 	background-color: rgb(51, 199, 204);
 }
 
-.create-button:focus{
+#create-button:focus{
 	outline: none;
 }
 
