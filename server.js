@@ -105,7 +105,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/location', function (req, res, next) {
+app.get('/home', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
@@ -116,18 +116,20 @@ app.get('/location', function (req, res, next) {
         throw err;
       }
       else {
-        console.log ("Working");
+        // console.log ("Working");
       }
     });
     
     var x = all_information.find({}).toArray( function (err, _data) {
       if(_data.length > 0) {
         // for(var i = 0; i < _data.length;i++){
-        console.log("Inner working" + _data[2] + " i is " + i);
+        // console.log("Inner working" + _data[2] + " i is " + i);
           var i = 1;
         // if(_data[i].link.toUpperCase() === n.toUpperCase()) {
           served = true;
-          res.render('placeView', {
+          res.render('locationList', {
+            locations: _data[i],
+            link: _data[i].link,
             name: _data[i].name,
             author: _data[i].author,
             lat: _data[i].lat,
@@ -141,6 +143,7 @@ app.get('/location', function (req, res, next) {
       }
       else {
         console.log("ERROROROR");
+        throw err;
       }
     });
   
@@ -171,26 +174,36 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/location/:n', function (req, res, next) {
-  var n = req.params.n;
+  var i = req.params.n;
   var served = false;
-
-  for(var i = 0; i < locationData.length; i++) {
-    if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
-      served = true;
-      res.render('placeView', {
-        name: locationData[i].name,
-        author: locationData[i].author,
-        lat: locationData[i].lat,
-        long: locationData[i].long,
-        description: locationData[i].description,
-        comments: locationData[i].comments
-      });
+  var all_information = db.collection('location_data', function (err,client) {
+    if(err) {
+      throw err;
     }
-  }
+    else {
+      // console.log ("Working");
+    }
+  });
+  
+  var x = all_information.find({}).toArray( function (err, _data) {
+    if(_data.length > 0) {
+      // if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+        served = true;
+        res.render('placeView', {
+          name: _data[i].name,
+          author: _data[i].author,
+          lat: locationData[i].lat,
+          long: _data[i].long,
+          description: _data[i].description,
+          comments: _data[i].comments
+        });
+      }
+  });
 
-  if(!served) {
-    next();
-  }
+  // if(!served) {
+    // next();
+  // }
+
 });
 
 app.get('*', function (req, res, next) {
