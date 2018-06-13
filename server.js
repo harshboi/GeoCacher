@@ -60,7 +60,7 @@ function retrieve_all_data () {
       throw err;
     }
     else {
-      console.log ("Tityful");
+      console.log ("Working");
     }
   });
   console.log("information is ", all_information.find({location:'Corvallis'}).toArray());
