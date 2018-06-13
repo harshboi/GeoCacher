@@ -59,12 +59,13 @@ caption {
 	font-weight: bold;
 }
 th, td {
-	padding:.25em 0;
+	padding:.5em 0;
 	border:1px solid #000;
 	text-align:center;
 }
 thead {
-	background:#LightGrey;
+	background:rgb(51, 199, 204);
+	color: #ffffff;
 	display:table;
 	overflow-x:hidden;
 	width:100%;
@@ -77,7 +78,9 @@ tbody {
 	overflow-x:hidden;
 	display:block;
 	width:100%;
+	background:#fff;
 }
+
 tbody tr {
 	display:table;
 	width:100%;
@@ -128,7 +131,7 @@ tr th:nth-child(2) {
 }
 
 tr th:nth-child(3) {
-  width: 16em;
+  width: 16.2em;
 }
 
 tr th:nth-child(4) {
@@ -136,7 +139,7 @@ tr th:nth-child(4) {
 }
 
 tr th:nth-child(5) {
-  width: 5em;
+  width: 5.675em;
 }
 .error-container {
   margin-top: 50px;
@@ -201,9 +204,11 @@ h2 {
 	font-weight: bold;
 }
 
+.description-latitute,
+.description-longitute,
 .description-text {
 	font-size: 110%;
-	margin: .5em 1em ;
+	margin: .25em .5em ;
 }
 
 
@@ -212,7 +217,7 @@ button .fa-comment, button .fa-map-pin {
 	transform: scale(2);
 }
 
-#create-button {
+.create-button {
 	border-radius: 50%;
 	background-color: Red;
 	box-shadow: 4px 4px 2px #BDBDBD;
@@ -224,12 +229,12 @@ button .fa-comment, button .fa-map-pin {
 	border: 0;
 }
 
-#create-button:hover {
+.create-button:hover {
 	transform: scale(1.2);
 	background-color: rgb(51, 199, 204);
 }
 
-#create-button:focus{
+.create-button:focus{
 	outline: none;
 }
 
