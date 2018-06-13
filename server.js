@@ -123,7 +123,7 @@ app.get('/home', function (req, res, next) {
     var x = all_information.find({}).toArray( function (err, _data) {
       if(_data.length > 0) {
         // for(var i = 0; i < _data.length;i++){
-        // console.log("Inner working" + _data[2] + " i is " + i);
+        console.log("Inner working" + _data.length);
           var i = 1;
         // if(_data[i].link.toUpperCase() === n.toUpperCase()) {
           served = true;
