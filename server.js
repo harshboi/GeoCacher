@@ -5,11 +5,18 @@ var request = require('request');
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require("body-parser");
 
 var locationData = require('./locData');
 
 var app = express();
 var port = process.env.PORT || 3000;
+
+// Process application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: true}))
+
+// Process application/json
+app.use(bodyParser.json());
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoHost = process.env.MONGO_HOST;
@@ -218,6 +225,16 @@ app.get('/:n', function (req, res, next) {
 app.get('*', function (req, res, next) {
   res.status(404);
   res.render('404page');
+});
+
+app.post('/new_location', function(req, res){
+  //now req.body will be populated with the object you sent
+  console.log(req.body.author); //prints john
+});
+
+app.post('/new_comment', function(req, res){
+  //now req.body will be populated with the object you sent
+  console.log(req.body.author); //prints john
 });
 
 app.listen(port, function () {
