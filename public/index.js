@@ -67,6 +67,7 @@ function sendData() {
 		}));
 	}
 	hideModal();
+	location.reload();
 }
 
 //Event Listeners
