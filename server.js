@@ -128,14 +128,14 @@ app.get('/home', function (req, res, next) {
         // if(_data[i].link.toUpperCase() === n.toUpperCase()) {
           served = true;
           res.render('locationList', {
-            locations: _data[i],
-            link: _data[i].link,
-            name: _data[i].name,
-            author: _data[i].author,
-            lat: _data[i].lat,
-            long: _data[i].long,
-            description: _data[i].description,
-            comments: _data[i].comments
+            locations: _data,
+            // link: _data[i].link,
+            // name: _data[i].name,
+            // author: _data[i].author,
+            // lat: _data[i].lat,
+            // long: _data[i].long
+            // description: _data[i].description,
+            // comments: _data[i].comments
           });
         // }
       // }
