@@ -84,6 +84,30 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
+app.get('/location/:n', function (req, res, next) {
+  var n = req.params.n;
+  var served = false;
+
+  for(var i = 0; i < locationData.length; i++) {
+    if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+      served = true;
+      res.render('placeView', {
+        name: locationData[i].name,
+        author: locationData[i].author,
+        lat: locationData[i].lat,
+        long: locationData[i].long,
+        description: locationData[i].description,
+        comments: locationData[i].comments
+      });
+    }
+  }
+
+  if(!served) {
+    next();
+  }
+});
+
+
 app.get('/', function (req, res, next) {
   res.render('locationList', {
     locations: locationData
