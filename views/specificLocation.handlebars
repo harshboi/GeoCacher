@@ -1,0 +1,43 @@
+<main class="location-info-page">
+    <h1 class="location-title">Name of Location from DB</h1>
+    <iframe width="800" height="500" frameborder="0" style="border:1"
+      src="https://www.google.com/maps/embed/v1/place
+      ?key=AIzaSyAtA4hg6nxC3wLCY_t-k5Ia8p4N4qoBBEM
+      &zoom=15
+      &q=
+      ({{lat}},{{long}})">
+    </iframe>
+</main>
+
+
+<main class="comment-container">
+  <article class="comment">
+    <div class="comment-content">
+      <p class="description-author">
+        {{Author Of Location}}
+      </p>
+      <p class="description-latitute">
+        {{lat}}
+      </p>
+      <p class="description-longitute">
+        {{long}}
+      </p>
+      <p class="description-text">
+        {{Description of place from Mongo}}
+      </p>
+    </div>
+  </article>
+
+
+  <main class="comment-container"> //Have to loop through database for multiple comments
+  <h2> Comment Section </h2>
+    <article class="comment">
+      <div class="comment-content">
+        <p class="comment-author">
+          {{Author of Comment From DB}}
+        </p>
+        <p class="comment-text">
+          {{Comment Content From DB}}
+        </p>
+      </div>
+    </article>

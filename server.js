@@ -31,7 +31,6 @@ MongoClient.connect(mongoURL, function(err, client) {
     throw err;
   }
   else {
-    console.log("Beautiful");
   }
   db = mongoDBDatabase = client.db(mongoDBName);
   // console.log("db is: ", db)
@@ -78,8 +77,18 @@ app.get('/', function (req, res, next) {
   });
 });
 
-app.get('/location/:n', function (req, res, next) {
-  // Display location n
+app.get('/location/:n', function (req, res, next) { //Routing for place
+  var locationName = req.params.n.toLowerCase();
+  var locationsCollection = mongoDB.collection('/*name of collection*/');
+  locationsCollection.find({ locationId: locationName }).toArray(function (err, locationDocs) {
+    if (err) {
+      res.status(500).send("Error fetching location from DB.");
+    } else if (locationDocs.length > 0) {
+      res.status(200).render('specificLocation', personDocs[0]);
+    } else {
+      next();
+    }
+  });
 });
 
 app.get('*', function (req, res, next) {
