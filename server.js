@@ -173,7 +173,7 @@ app.get('/', function (req, res, next) {
   });
 });
 
-app.get('/location/:n', function (req, res, next) {
+app.get('/:n', function (req, res, next) {
   var i = req.params.n;
   var served = false;
   var all_information = db.collection('location_data', function (err,client) {
@@ -187,6 +187,23 @@ app.get('/location/:n', function (req, res, next) {
 
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
+      var validity = 0;
+      
+      for(j = 0; j<_data.length; j++) {
+        // console.log(_data[j].link.toLowerCase() + " " + i.toLowerCase());
+        if(_data[j].link.toLowerCase() === i.toLowerCase()) {
+          i = _data[j].num - 1;
+          validity = 1;
+          console.log("i is " + i);
+          break;
+        }
+      }
+
+      if(validity == 0) {
+        console.log("Invalid");
+        next();
+      }
+      else {
       // if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
         served = true;
         res.render('placeView', {
@@ -198,6 +215,7 @@ app.get('/location/:n', function (req, res, next) {
           comments: _data[i].comments
         });
       }
+    }
   });
 
   // if(!served) {
