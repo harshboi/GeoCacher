@@ -36,6 +36,32 @@ function hideModal()
 		document.getElementById('location-state-input').value = '';
 }
 
+function sendData() {
+	var xhr = new XMLHttpRequest();
+	if(document.getElementById('leave-comment-modal')) {
+		xhr.open("POST", "/new_comment", true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+		    author: document.getElementById('comment-author-input').value,
+				comment: document.getElementById('comment-input').value
+		}));
+	} else if(document.getElementById('create-location-modal')) {
+		xhr.open("POST", "/new_location", true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+		    author: document.getElementById('location-author-input').value,
+				desc: document.getElementById('location-description-input').value,
+				lat: document.getElementById('location-latitude-input').value,
+				long: document.getElementById('location-longitude-input').value,
+				city: document.getElementById('location-city-input').value,
+				state: document.getElementById('location-state-input').value
+		}));
+	}
+	hideModal();
+}
+
+document.getElementsByClassName('modal-accept-button')[0].addEventListener('click', sendData);
+
 document.getElementsByClassName('modal-close-button')[0].addEventListener('click', hideModal);
 
 document.getElementsByClassName('modal-cancel-button')[0].addEventListener('click', hideModal);
