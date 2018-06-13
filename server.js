@@ -75,20 +75,20 @@ function retrieve_all_data () {
       throw err;
     }
     else {
-      console.log ("Working ",client);
+      //console.log ("Working ",client);
     }
   });
 
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
-      console.log("DADADA", _data[0]);
+      //console.log("DADADA", _data[0]);
       var zz = _data[0].comments;
-      console.log(zz);
+      //console.log(zz);
       // res.status(200).render()
       return _data;
     }
     else {
-      console.log("ERROROROR");
+      //console.log("ERROROROR");
     }
   });
 
@@ -117,7 +117,7 @@ app.get('/', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
-  console.log("INSIDE LOCATION");
+  //console.log("INSIDE LOCATION");
 
     var all_information = db.collection('location_data', function (err,client) {
       if(err) {
@@ -131,7 +131,7 @@ app.get('/', function (req, res, next) {
     var x = all_information.find({}).toArray( function (err, _data) {
       if(_data.length > 0) {
         // for(var i = 0; i < _data.length;i++){
-        console.log("Inner working" + _data.length);
+        //console.log("Inner working" + _data.length);
           var i = 1;
         // if(_data[i].link.toUpperCase() === n.toUpperCase()) {
           served = true;
@@ -150,7 +150,7 @@ app.get('/', function (req, res, next) {
         // return _data;
       }
       else {
-        console.log("ERROROROR");
+        //console.log("ERROROROR");
         throw err;
       }
     });
@@ -230,16 +230,16 @@ app.get('*', function (req, res, next) {
 
 app.post('/new_location', function(req, res){
   //now req.body will be populated with the object you sent
-  console.log(req.body.author); //prints john
+  //console.log(req.body.author); //prints john
   var link = req.body.author + "_" + req.body.name;
   link = link.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-  console.log(link);
+  //console.log(link);
   add_data(req.body.name, req.body.desc, link, req.body.author, req.body.city, req.body.state, req.body.lat, req.body.long);
 });
 
 app.post('/new_comment', function(req, res){
   //now req.body will be populated with the object you sentsite
-  console.log(req.body.author); //prints john
+  console.log("Comment Author: "+ req.body.author + "\nComment Text: " + req.body.comment); //prints john
 });
 
 app.listen(port, function () {
