@@ -240,24 +240,33 @@ app.post('/people/:person/addPhoto', function (req, res, next) {
       caption: req.body.caption,
       photoURL: req.body.photoURL
     };
-    var peopleCollection = mongoDB.collection('people');
-    peopleCollection.updateOne(
-      { personId: person },
-      { $push: { photos: photo } },
-      function (err, result) {
-        if (err) {
-          res.status(500).send("Error inserting photo into DB.")
-        } else {
-          console.log("== mongo insert result:", result);
-          if (result.matchedCount > 0) {
-            res.status(200).end();
-          } else {
-            next();
-          }
-        }
-      }
-    );
-  } else {
-    res.status(400).send("Request needs a JSON body with caption and photoURL.")
-  }
+
+    var myobj = { name: req.name, link : req.link, author : req.author, description : req.description, city : req.city, state : req.state, lat : req.lat, long : ret.long, comments : req.comments};
+    db.collection("location_data").insertOne(myobj, function(err, res) {
+      if (err) throw err;
+      console.log("1 document inserted");
+      db.close();
+    });
+
+  //   var peopleCollection = mongoDB.collection('people');
+  //   peopleCollection.updateOne(
+  //     { personId: person },
+  //     { $push: { photos: photo } },
+  //     function (err, result) {
+  //       if (err) {
+  //         res.status(500).send("Error inserting photo into DB.")
+  //       } else {
+  //         console.log("== mongo insert result:", result);
+  //         if (result.matchedCount > 0) {
+  //           res.status(200).end();
+  //         } else {
+  //           next();
+  //         }
+  //       }
+  //     }
+  //   );
+    } 
+  // else {
+  //   res.status(400).send("Request needs a JSON body with caption and photoURL.")
+  // }
 });

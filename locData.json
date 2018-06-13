@@ -3,6 +3,7 @@
     "name": "test",
     "link": "asdf",
     "author": "asdfasdf",
+    "num" : 1,
     "description": "description test text here",
     "city": "corvallis",
     "state": "oregon",
@@ -23,6 +24,7 @@
     "name": "test2",
     "link": "test2",
     "author": "trevor",
+    "num" : 2,    
     "description": "description test text here",
     "city": "corvallis",
     "state": "oregon",
@@ -39,11 +41,12 @@
     "name": "test3",
     "link": "test3",
     "author": "hello",
+    "num" : 3,    
     "description": "description test text here",
     "city": "portland",
     "state": "oregon",
     "lat": "23",
     "long": "54",
-    "comments": "FALSE"
+    "comments": false
   }
 ]

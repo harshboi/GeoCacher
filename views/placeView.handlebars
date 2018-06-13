@@ -23,11 +23,13 @@
     </div>
   </article>
 
+  {{#if comments}}
   <h2> Comment Section </h2>
 
   {{#each comments}}
     {{> commentItem}}
   {{/each}}
+  {{/if}}
 </main>
 
 {{> newCommentModal}}
