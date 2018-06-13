@@ -20,6 +20,8 @@ function hideModal()
 	}
 	if(document.getElementById('comment-author-input'))
 		document.getElementById('comment-author-input').value = '';
+	if(document.getElementById('comment-input'))
+		document.getElementById('comment-input').value = '';
 	if(document.getElementById('location-author-input'))
 		document.getElementById('location-author-input').value = '';
 	if(document.getElementById('location-description-input'))
