@@ -1,4 +1,6 @@
 var fs = require('fs');
+var request = require('request');
+
 
 var path = require('path');
 var express = require('express');
@@ -32,14 +34,17 @@ MongoClient.connect(mongoURL, function(err, client) {
   if (err) {
     throw err;
   }
-  else {
-  }
   db = mongoDBDatabase = client.db(mongoDBName);
   // console.log("db is: ", db)
   app.listen(3001, function () {
     console.log("== Server listening on port 3000");
   });
-  retrieve_all_data();
+  var temp = retrieve_all_data();
+  setTimeout( function(){
+    console.log("Data load finished");
+    console.log("temp is: ",temp);    
+  },2000);
+  console.log("temp is: ",temp);
 });
 
 function add_data (_name, _link, _author, _city, _state, _lat, _long) {
@@ -67,12 +72,13 @@ function retrieve_all_data () {
   });
   
   var x = all_information.find({}).toArray( function (err, _data) {
-  if(_data.length > 0) {
-    console.log("DADADA", _data);
-  }
-  else {
-    console.log("ERROROROR");
-  }
+    if(_data.length > 0) {
+      console.log("DADADA", _data[3]);
+      return _data;
+    }
+    else {
+      console.log("ERROROROR");
+    }
   });
 
   // while(x == undefined) {
@@ -100,18 +106,50 @@ app.get('/location/:n', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
+  
+
   for(var i = 0; i < locationData.length; i++) {
-    if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
-      served = true;
-      res.render('placeView', {
-        name: locationData[i].name,
-        author: locationData[i].author,
-        lat: locationData[i].lat,
-        long: locationData[i].long,
-        description: locationData[i].description,
-        comments: locationData[i].comments
-      });
-    }
+    var all_information = db.collection('location_data', function(err,client) {
+      if(err) {
+        throw err;
+      }
+      else {
+        console.log ("Working");
+      }
+    });
+    
+    var x = all_information.find({}).toArray( function (err, _data) {
+      if(_data.length > 0) {
+        console.log("DADADA", _data[2]);
+        if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+          served = true;
+          res.render('placeView', {
+            name: locationData[i].name,
+            author: locationData[i].author,
+            lat: locationData[i].lat,
+            long: locationData[i].long,
+            description: locationData[i].description,
+            comments: locationData[i].comments
+          });
+        }
+        // return _data;
+      }
+      else {
+        console.log("ERROROROR");
+      }
+    });
+  
+    // if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+    //   served = true;
+    //   res.render('placeView', {
+    //     name: locationData[i].name,
+    //     author: locationData[i].author,
+    //     lat: locationData[i].lat,
+    //     long: locationData[i].long,
+    //     description: locationData[i].description,
+    //     comments: locationData[i].comments
+    //   });
+    // }
   }
 
   if(!served) {
@@ -157,5 +195,5 @@ app.get('*', function (req, res, next) {
 });
 
 app.listen(port, function () {
-  console.log("== Server is listening on port", port);
+  // console.log("== Server is listening on port", port);
 });

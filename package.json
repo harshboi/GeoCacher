@@ -10,7 +10,9 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
     "mongo": "^0.1.0",
-    "mongodb": "^3.0.10"
+    "mongodb": "^3.0.10",
+    "promises": "^0.2.5",
+    "request": "^2.87.0"
   },
   "devDependencies": {},
   "scripts": {
