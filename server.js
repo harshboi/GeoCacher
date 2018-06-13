@@ -42,7 +42,7 @@ MongoClient.connect(mongoURL, function(err, client) {
   var temp = retrieve_all_data();
   setTimeout( function(){
     // console.log("Data load finished");
-    // console.log("temp is: ",temp);    
+    // console.log("temp is: ",temp);
   },2000);
   // console.log("temp is: ",temp);
 });
@@ -70,7 +70,7 @@ function retrieve_all_data () {
       console.log ("Working ",client);
     }
   });
-  
+
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
       console.log("DADADA", _data[0]);
@@ -109,7 +109,7 @@ app.get('/home', function (req, res, next) {
   var n = req.params.n;
   var served = false;
 
-  console.log("INSIDE LOCATION");  
+  console.log("INSIDE LOCATION");
 
     var all_information = db.collection('location_data', function (err,client) {
       if(err) {
@@ -119,7 +119,7 @@ app.get('/home', function (req, res, next) {
         // console.log ("Working");
       }
     });
-    
+
     var x = all_information.find({}).toArray( function (err, _data) {
       if(_data.length > 0) {
         // for(var i = 0; i < _data.length;i++){
@@ -139,14 +139,14 @@ app.get('/home', function (req, res, next) {
           });
         // }
       // }
-        // return _data;  
+        // return _data;
       }
       else {
         console.log("ERROROROR");
         throw err;
       }
     });
-  
+
     // if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
     //   served = true;
     //   res.render('placeView', {
@@ -184,7 +184,7 @@ app.get('/location/:n', function (req, res, next) {
       // console.log ("Working");
     }
   });
-  
+
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
       // if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
@@ -213,4 +213,33 @@ app.get('*', function (req, res, next) {
 
 app.listen(port, function () {
   // console.log("== Server is listening on port", port);
+});
+
+app.post('/people/:person/addPhoto', function (req, res, next) {
+  var person = req.params.person.toLowerCase();
+  if (req.body && req.body.caption && req.body.photoURL) {
+    var photo = {
+      caption: req.body.caption,
+      photoURL: req.body.photoURL
+    };
+    var peopleCollection = mongoDB.collection('people');
+    peopleCollection.updateOne(
+      { personId: person },
+      { $push: { photos: photo } },
+      function (err, result) {
+        if (err) {
+          res.status(500).send("Error inserting photo into DB.")
+        } else {
+          console.log("== mongo insert result:", result);
+          if (result.matchedCount > 0) {
+            res.status(200).end();
+          } else {
+            next();
+          }
+        }
+      }
+    );
+  } else {
+    res.status(400).send("Request needs a JSON body with caption and photoURL.")
+  }
 });
