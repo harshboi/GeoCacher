@@ -198,7 +198,7 @@ app.get('/:n', function (req, res, next) {
       }
 
       if(validity == 0) {
-        console.log("Invalid");
+        // console.log("Invalid");
         next();
       }
       else {
@@ -237,7 +237,7 @@ app.post('/new_location', function(req, res){
 });
 
 app.post('/new_comment', function(req, res){
-  //now req.body will be populated with the object you sent
+  //now req.body will be populated with the object you sentsite
   console.log(req.body.author); //prints john
 });
 
@@ -245,14 +245,13 @@ app.listen(port, function () {
   // console.log("== Server is listening on port", port);
 });
 
-app.post('/people/:person/addPhoto', function (req, res, next) {
-  var person = req.params.person.toLowerCase();
-  if (req.body && req.body.caption && req.body.photoURL) {
-    var photo = {
-      caption: req.body.caption,
-      photoURL: req.body.photoURL
-    };
+app.post('/new_comment', function (req, res, next) {
+  
+});
 
+app.post('/new_location', function (req, res, next) {
+  var person = req.params.person.toLowerCase();
+    console.log("INSIDE");
     var myobj = { name: req.name, link : req.link, author : req.author, description : req.description, city : req.city, state : req.state, lat : req.lat, long : ret.long, comments : req.comments};
     db.collection("location_data").insertOne(myobj, function(err, res) {
       if (err) throw err;
@@ -277,7 +276,7 @@ app.post('/people/:person/addPhoto', function (req, res, next) {
   //       }
   //     }
   //   );
-    }
+    // }
   // else {
   //   res.status(400).send("Request needs a JSON body with caption and photoURL.")
   // }
