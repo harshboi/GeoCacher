@@ -1,3 +1,6 @@
+
+var fs = require('fs');
+
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -55,7 +58,7 @@ function add_data (_name, _link, _author, _city, _state, _lat, _long) {
 };
 
 function retrieve_all_data () {
-  var all_information = db.collection('location_data',function(err,client) {
+  var all_information = db.collection('location_data', function(err,client) {
     if(err) {
       throw err;
     }
@@ -63,8 +66,31 @@ function retrieve_all_data () {
       console.log ("Working");
     }
   });
-  console.log("information is ", all_information.find({location:'Corvallis'}).toArray());
+  
+  var x = all_information.find({}).toArray( function (err, _data) {
+  if(_data.length > 0) {
+    console.log("DADADA", _data);
+  }
+  else {
+    console.log("ERROROROR");
+  }
+  });
+
+  // while(x == undefined) {
+    // console.log("INSIDE");
+  // };
+
+//   var y = x.count(function (err, num) {
+//     if(err) {
+//         return console.log(err);
+//     }
+//     console.log("Num is ", num);
+//     return num;
+// });
+
+//   console.log("is ", y);
 };
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
