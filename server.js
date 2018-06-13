@@ -39,15 +39,26 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/location/:n', function (req, res, next) {
-  // Display location n
-  res.render('placeView', {
-    name: locationData[0].name,
-    author: locationData[0].author,
-    lat: locationData[0].lat,
-    long: locationData[0].long,
-    description: locationData[0].description,
-    comments: locationData[0].comments
-  });
+  var n = req.params.n;
+  var served = false;
+
+  for(var i = 0; i < locationData.length; i++) {
+    if(locationData[i].link.toUpperCase() === n.toUpperCase()) {
+      served = true;
+      res.render('placeView', {
+        name: locationData[i].name,
+        author: locationData[i].author,
+        lat: locationData[i].lat,
+        long: locationData[i].long,
+        description: locationData[i].description,
+        comments: locationData[i].comments
+      });
+    }
+  }
+
+  if(!served) {
+    next();
+  }
 });
 
 app.get('*', function (req, res, next) {
