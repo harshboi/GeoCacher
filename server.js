@@ -190,7 +190,7 @@ app.get('/:n', function (req, res, next) {
       for(j = 0; j<_data.length; j++) {
         // console.log(_data[j].link.toLowerCase() + " " + i.toLowerCase());
         if(_data[j].link.toLowerCase() === i.toLowerCase()) {
-          i = _data[j].num - 1;
+          i = j;
           validity = 1;
           console.log("i is " + i);
           break;
@@ -207,7 +207,7 @@ app.get('/:n', function (req, res, next) {
         res.render('placeView', {
           name: _data[i].name,
           author: _data[i].author,
-          lat: locationData[i].lat,
+          lat: _data[i].lat,
           long: _data[i].long,
           description: _data[i].description,
           comments: _data[i].comments
