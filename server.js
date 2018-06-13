@@ -239,13 +239,6 @@ app.post('/new_location', function(req, res){
 app.post('/new_comment', function(req, res){
   //now req.body will be populated with the object you sentsite
   console.log(req.body.author); //prints john
-});
-
-app.listen(port, function () {
-  // console.log("== Server is listening on port", port);
-});
-
-app.post('/new_comment', function (req, res, next) {
   var x = all_information.find({}).toArray( function (err, _data) {
     if(_data.length > 0) {
       var validity = 0;
@@ -265,8 +258,18 @@ app.post('/new_comment', function (req, res, next) {
         next();
       }
       else {
-      
+        // _data[j]
       }
+    }
+  });
+});
+
+app.listen(port, function () {
+  // console.log("== Server is listening on port", port);
+});
+
+app.post('/new_comment', function (req, res, next) {
+  
 });
 
 // app.post('/new_location', function (req, res, next) {
