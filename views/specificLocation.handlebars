@@ -1,0 +1,20 @@
+<main class="location-table-container">
+  <table class = "location-table">
+  <caption>Location List</caption>
+    <thead class = "location-table-header">
+      <tr>
+        <th>Location</th>
+        <th>Author</th>
+        <th colspan="2">Aproximate Location</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+    </thead>
+
+    <tbody class = "location-table-body">
+      {{#each locations}}
+        {{> locationListItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</main>

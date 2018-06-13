@@ -14,7 +14,7 @@ var mongoUser = process.env.MONGO_USER;
 var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB_NAME;
 mongoUser = 'cs290_singhhar';
-mongoHost = 'cs290_singhhar';
+mongoHost = 'cs290cs290_singhhar';
 mongoDBName = 'cs290_singhhar';
 mongoPassword = 'cs290_singhhar';
 var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
@@ -24,6 +24,9 @@ var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost 
 MongoClient.connect(mongoURL, function(err, client) {
   if (err) {
     throw err;
+  }
+  else {
+    console.log("BOTIFUL");
   }
 });
 
@@ -39,7 +42,9 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/location/:n', function (req, res, next) {
-  // Display location n
+  res.render('specificLocation', {
+
+  })
 });
 
 app.get('*', function (req, res, next) {
