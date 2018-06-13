@@ -41,7 +41,7 @@ app.get('/', function (req, res, next) {
   });
 });
 
-app.get('/location/:n', function (req, res, next) {
+app.get('/location/:n', function (req, res, next) { //Routing for place
   res.render('specificLocation', {
 
   })
