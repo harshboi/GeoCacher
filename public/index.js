@@ -18,6 +18,8 @@ function hideModal()
 	if(document.getElementById('create-location-modal')) {
 		document.getElementById('create-location-modal').classList.toggle('hidden');
 	}
+	if(document.getElementById('location-name-input'))
+		document.getElementById('location-name-input').value = '';
 	if(document.getElementById('comment-author-input'))
 		document.getElementById('comment-author-input').value = '';
 	if(document.getElementById('comment-input'))
@@ -49,6 +51,7 @@ function sendData() {
 		xhr.open("POST", "/new_location", true);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.send(JSON.stringify({
+				name: document.getElementById('location-name-input').value,
 		    author: document.getElementById('location-author-input').value,
 				desc: document.getElementById('location-description-input').value,
 				lat: document.getElementById('location-latitude-input').value,
