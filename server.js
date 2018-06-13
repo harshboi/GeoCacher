@@ -192,7 +192,7 @@ app.get('/:n', function (req, res, next) {
         if(_data[j].link.toLowerCase() === i.toLowerCase()) {
           i = j;
           validity = 1;
-          console.log("i is " + i);
+          // console.log("i is " + i);
           break;
         }
       }
@@ -246,25 +246,45 @@ app.listen(port, function () {
 });
 
 app.post('/new_comment', function (req, res, next) {
-  
+  var x = all_information.find({}).toArray( function (err, _data) {
+    if(_data.length > 0) {
+      var validity = 0;
+
+      for(j = 0; j<_data.length; j++) {
+        // console.log(_data[j].link.toLowerCase() + " " + i.toLowerCase());
+        if(_data[j].link.toLowerCase() === i.toLowerCase()) {
+          i = j;
+          validity = 1;
+          // console.log("i is " + i);
+          break;
+        }
+      }
+
+      if(validity == 0) {
+        // console.log("Invalid");
+        next();
+      }
+      else {
+      
+      }
 });
 
-app.post('/new_location', function (req, res, next) {
-  var person = req.params.person.toLowerCase();
-    console.log("INSIDE");
-    var myobj = { name: req.name, link : req.link, author : req.author, description : req.description, city : req.city, state : req.state, lat : req.lat, long : ret.long, comments : req.comments};
-    db.collection("location_data").insertOne(myobj, function(err, res) {
-      if (err) throw err;
-      console.log("1 document inserted");
-      db.close();
-    });
+// app.post('/new_location', function (req, res, next) {
+//   var person = req.params.person.toLowerCase();
+//     console.log("INSIDE");
+//     var myobj = { name: req.name, link : req.link, author : req.author, description : req.description, city : req.city, state : req.state, lat : req.lat, long : ret.long, comments : req.comments};
+//     db.collection("location_data").insertOne(myobj, function(err, res) {
+//       if (err) throw err;
+//       console.log("1 document inserted");
+//       db.close();
+//     });
 
   //   var peopleCollection = mongoDB.collection('people');
   //   peopleCollection.updateOne(
   //     { personId: person },
   //     { $push: { photos: photo } },
   //     function (err, result) {
-  //       if (err) {
+  // / /       if (err) {
   //         res.status(500).send("Error inserting photo into DB.")
   //       } else {
   //         console.log("== mongo insert result:", result);
@@ -280,4 +300,4 @@ app.post('/new_location', function (req, res, next) {
   // else {
   //   res.status(400).send("Request needs a JSON body with caption and photoURL.")
   // }
-});
+// });

@@ -39,6 +39,7 @@ function hideModal()
 }
 
 function sendData() {
+	console.log("FJKBNIJDFKBN");
 	var xhr = new XMLHttpRequest();
 	if(document.getElementById('leave-comment-modal')) {
 		xhr.open("POST", "/new_comment", true);
