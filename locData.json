@@ -3,24 +3,43 @@
     "name": "test",
     "link": "asdf",
     "author": "asdfasdf",
+    "description": "description test text here",
     "city": "corvallis",
     "state": "oregon",
     "lat": "112",
-    "long": "-123.2342"
+    "long": "-123.2342",
+    "comments": [
+      {
+        "author": "trevor",
+        "comment": "this place sucks"
+      },
+      {
+        "author": "not trevor",
+        "comment": "this place doesnt suck"
+      }
+    ]
   },
   {
     "name": "test2",
     "link": "test2",
     "author": "trevor",
+    "description": "description test text here",
     "city": "corvallis",
     "state": "oregon",
     "lat": "23",
-    "long": "54"
+    "long": "54",
+    "comments": [
+      {
+        "author": "trevor2",
+        "comment": "this place sucks2"
+      }
+    ]
   },
   {
     "name": "test3",
     "link": "test3",
     "author": "hello",
+    "description": "description test text here",
     "city": "portland",
     "state": "oregon",
     "lat": "23",

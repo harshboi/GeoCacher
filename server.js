@@ -14,57 +14,18 @@ var mongoUser = process.env.MONGO_USER;
 var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB_NAME;
 mongoUser = 'cs290_singhhar';
-mongoHost = 'classmongo.engr.oregonstate.edu';
+mongoHost = 'cs290_singhhar';
 mongoDBName = 'cs290_singhhar';
 mongoPassword = 'cs290_singhhar';
-// var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
-var mongoURL = 'mongodb://' + 'cs290_singhhar' + ':' + 'cs290_singhhar' + '@' + 'classmongo.engr.oregonstate.edu' + ':' + mongoPort + '/' + 'cs290_singhhar';
-
+var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
+// var mongoURL = 'mongodb://' + 'cs290_singhhar' + ':' + 'cs290_singhhar' + '@' + 'classmongo.engr.oregonstate.edu' + ':' + mongoPort + '/' + 'cs290_singhhar';
 // mongo --host classmongo.engr.oregonstate.edu --username cs290_singhhar cs290_singhhar --password
 //mongo --host classmongo.engr.oregonstate.edu --username cs290_[ONID] cs290_[ONID] --password
-// mongodb://cs290_singhhar:cs290_singhhar@classmongo.engr.oregonstate.edu:27017/cs290_singhhar
-var mongoDBDatabase;
-var db;
-
 MongoClient.connect(mongoURL, function(err, client) {
   if (err) {
-    throw err;
+    //throw err;
   }
-  else {
-  }
-  db = mongoDBDatabase = client.db(mongoDBName);
-  // console.log("db is: ", db)
-  app.listen(3000, function () {
-    console.log("== Server listening on port 3000");
-  });
-  retrieve_all_data();
 });
-
-function add_data (_name, _link, _author, _city, _state, _lat, _long) {
-  var data = db.collection('location_data');
-  data.insertOne({
-    name: _name,
-    link: _link,
-    author:_author,
-    city: _city,
-    state: _state,
-    lat: _lat,
-    long: _long
-  });
-  // console.log("data is: ", data);
-};
-
-function retrieve_all_data () {
-  var all_information = db.collection('location_data',function(err,client) {
-    if(err) {
-      throw err;
-    }
-    else {
-      console.log ("Working");
-    }
-  });
-  console.log("information is ", all_information.find({location:'Corvallis'}).toArray());
-};
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -77,21 +38,23 @@ app.get('/', function (req, res, next) {
   });
 });
 
-app.get('/location/:n', function (req, res, next) { //Routing for place
-  var locationName = req.params.n.toLowerCase();
-  var locationsCollection = mongoDB.collection('/*name of collection*/');
-  locationsCollection.find({ locationId: locationName }).toArray(function (err, locationDocs) {
-    if (err) {
-      res.status(500).send("Error fetching location from DB.");
-    } else if (locationDocs.length > 0) {
-      res.status(200).render('specificLocation', personDocs[0]);
-    } else {
-      next();
-    }
+app.get('/location/:n', function (req, res, next) {
+  // Display location n
+  res.render('placeView', {
+    name: locationData[0].name,
+    author: locationData[0].author,
+    lat: locationData[0].lat,
+    long: locationData[0].long,
+    description: locationData[0].description,
+    comments: locationData[0].comments
   });
 });
 
 app.get('*', function (req, res, next) {
   res.status(404);
   res.render('404page');
+});
+
+app.listen(port, function () {
+  console.log("== Server is listening on port", port);
 });
