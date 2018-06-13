@@ -239,29 +239,9 @@ app.post('/new_location', function(req, res){
 app.post('/new_comment', function(req, res){
   //now req.body will be populated with the object you sentsite
   console.log(req.body.author); //prints john
-  var x = all_information.find({}).toArray( function (err, _data) {
-    if(_data.length > 0) {
-      var validity = 0;
-
-      for(j = 0; j<_data.length; j++) {
-        // console.log(_data[j].link.toLowerCase() + " " + i.toLowerCase());
-        if(_data[j].link.toLowerCase() === i.toLowerCase()) {
-          i = j;
-          validity = 1;
-          // console.log("i is " + i);
-          break;
-        }
-      }
-
-      if(validity == 0) {
-        // console.log("Invalid");
-        next();
-      }
-      else {
-        // _data[j]
-      }
-    }
-  });
+  
+  all_information.updateOne({})
+  // _data[j
 });
 
 app.listen(port, function () {
