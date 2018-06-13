@@ -1,3 +1,6 @@
+//Event Listeners are at the bottom of the page
+
+//Function to show modal for comment page
 function showModal()
 {
 	document.getElementById('modal-backdrop').classList.toggle('hidden');
@@ -9,6 +12,7 @@ function showModal()
 	}
 }
 
+//Function to hide modal for comment page
 function hideModal()
 {
 	document.getElementById('modal-backdrop').classList.toggle('hidden');
@@ -38,6 +42,7 @@ function hideModal()
 		document.getElementById('location-state-input').value = '';
 }
 
+//Funciton to send data for a new location and to interact with DB using XMLHttpRequest
 function sendData() {
 	console.log("FJKBNIJDFKBN");
 	var xhr = new XMLHttpRequest();
@@ -64,6 +69,7 @@ function sendData() {
 	hideModal();
 }
 
+//Event Listeners
 document.getElementsByClassName('modal-accept-button')[0].addEventListener('click', sendData);
 
 document.getElementsByClassName('modal-close-button')[0].addEventListener('click', hideModal);
