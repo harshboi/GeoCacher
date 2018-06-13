@@ -54,10 +54,11 @@ MongoClient.connect(mongoURL, function(err, client) {
   // console.log("temp is: ",temp);
 });
 
-function add_data (_name, _link, _author, _city, _state, _lat, _long) {
+function add_data (_name, _description, _link, _author, _city, _state, _lat, _long) {
   var data = db.collection('location_data');
   data.insertOne({
     name: _name,
+    description: _description,
     link: _link,
     author:_author,
     city: _city,
@@ -233,7 +234,7 @@ app.post('/new_location', function(req, res){
   var link = req.body.author + "_" + req.body.name;
   link = link.replace(/[^a-z0-9]/gi, '_').toLowerCase();
   console.log(link);
-  add_data(req.body.name, link, req.body.author, req.body.city, req.body.state, req.body.lat, req.body.long);
+  add_data(req.body.name, req.body.desc, link, req.body.author, req.body.city, req.body.state, req.body.lat, req.body.long);
 });
 
 app.post('/new_comment', function(req, res){
